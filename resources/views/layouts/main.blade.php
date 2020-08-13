@@ -1,12 +1,26 @@
-
 @include('includes.header')
-<body>
+<body class="text-center">
 
-@include('includes.navbar')
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-@yield('container-fluid')
+    @include('includes.navbar')
 
 
+    <main role="main" class="inner cover">
+
+        @yield('container-fluid')
+
+    </main>
+
+    @include('includes.footer')
+
+</div>
 </body>
 </html>
-@include('includes.footer')
+
+
+
+
+
+
+

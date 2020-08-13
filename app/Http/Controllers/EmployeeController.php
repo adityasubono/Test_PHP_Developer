@@ -118,19 +118,18 @@ class EmployeeController extends Controller
     {
         try {
 
-
-
             $age = $request->input('age');
             $location = $request->input('location_code');
 
             $data_location = Location::all();
-            if(empty($age) && empty($location)){
+            if(empty($age) && empty($location)) {
                 $data_employee = DB::select('SELECT employees.id, employees.name as employee_name,
                                                    locations.name as location_name,
                                                    employees.birth_date FROM employees JOIN locations
                                                    ON employees.location_code = locations.code');
 
-                return view('employee.index', compact('data_employee','data_location'));
+                return view('employee.index', compact('data_employee', 'data_location'));
+
             }else{
 
                 $data_employee = DB::select('SELECT employees.id, employees.name as employee_name,
@@ -142,6 +141,16 @@ class EmployeeController extends Controller
                 return view('employee.index', compact('data_employee','data_location'));
             }
 
+
+            if ($age) {
+                $data_employee = DB::select('SELECT employees.id, employees.name as employee_name,
+                                                 locations.name as location_name,
+                                                 TIMESTAMPDIFF(YEAR, employees.birth_date, CURDATE()),
+                                                 birth_date FROM employees JOIN locations ON employees.location_code = locations.code
+                                                 WHERE TIMESTAMPDIFF(YEAR, employees.birth_date, CURDATE()) >=' . "$age");
+
+                return view('employee.index', compact('data_employee', 'data_location'));
+            }
 
 
 

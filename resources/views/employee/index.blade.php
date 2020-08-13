@@ -18,7 +18,7 @@
     @endif
 
 
-    <h3>Employee</h3>
+    <h3 class="text-left">Employee</h3>
     <button class="btn btn-success float-right mb-3"
             data-toggle="modal"
             data-target="#confirm_add_employee"
@@ -37,7 +37,7 @@
          aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-header bg-success text-white">
                     <h5 class="modal-title" id="exampleModalScrollableTitle">
                         Add Employee
                     </h5>
@@ -46,7 +46,7 @@
                         <i class="text-white">x</i>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body text-black-50 text-left">
                     <form action="/employee/search" method="post">
                         @csrf
                         <div class="row">
@@ -114,7 +114,7 @@
          aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-header bg-success text-white">
                     <h5 class="modal-title" id="exampleModalScrollableTitle">
                         Add Employee
                     </h5>
@@ -123,7 +123,7 @@
                         <i class="text-white">x</i>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body text-black-50 text-left">
                     <form action="/employee/store" method="post">
                         @csrf
                         <div class="row">
@@ -193,7 +193,7 @@
         </div>
     </div>
 
-    <table class="table">
+    <table class="table table-hover table-dark">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -241,7 +241,7 @@
              aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
                 <div class="modal-content">
-                    <div class="modal-header bg-primary text-white">
+                    <div class="modal-header bg-success text-white">
                         <h5 class="modal-title" id="exampleModalScrollableTitle">
                             Edit Data Employee
                         </h5>
@@ -250,7 +250,7 @@
                             <i class="text-white">x</i>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body text-black-50 text-left">
                         <form action="/employee/update/{{$data->id}}" method="post">
                             @csrf
                             @method('patch')
@@ -333,8 +333,8 @@
              aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
                 <div class="modal-content">
-                    <div class="modal-header bg-warning text-white">
-                        <h5 class="modal-title text-black-50" id="exampleModalScrollableTitle">
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle">
                             Delete Employee
                         </h5>
                         <button type="button" class="close bg-danger p-sm-4" data-dismiss="modal"
@@ -342,7 +342,7 @@
                             <i class="text-white">x</i>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body text-black-50 text-left">
                         <form action="/employee/delete/{{$data->id}}" method="post">
                             @csrf
                             @method('delete')
